@@ -10,9 +10,12 @@ import android.graphics.Canvas;
 public class CharacterSprite {
 
     private Bitmap image;
+    private int mX, mY;
 
     public CharacterSprite(Bitmap bmp) {
         image = bmp;
+        mX = 100;
+        mY = 0;
     }
 
     public void draw(Canvas canvas) {

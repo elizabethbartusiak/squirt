@@ -35,7 +35,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         mThread.setRunning(true);
         mThread.start();
         mShampoo = new CharacterSprite(BitmapFactory.decodeResource(getResources(),
-                R.drawable.shampoo));
+                R.drawable.shampoocond));
     }
 
     @Override
