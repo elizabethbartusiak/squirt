@@ -1,10 +1,10 @@
 package edu.duke.compsci290.squirt;
 
 import android.content.Context;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.support.annotation.MainThread;
 import android.view.SurfaceView;
 import android.view.SurfaceHolder;
 
@@ -14,13 +14,14 @@ import android.view.SurfaceHolder;
 
 public class GameView extends SurfaceView implements SurfaceHolder.Callback {
 
-    private myMainThread mThread;
+    private MainThread mThread;
+    private CharacterSprite mShampoo;
 
     public GameView(Context context) {
         super(context);
 
         getHolder().addCallback(this);
-        mThread = new myMainThread(getHolder(), this);
+        mThread = new MainThread(getHolder(), this);
         setFocusable(true);
     }
 
@@ -33,6 +34,8 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     public void surfaceCreated(SurfaceHolder holder) {
         mThread.setRunning(true);
         mThread.start();
+        mShampoo = new CharacterSprite(BitmapFactory.decodeResource(getResources(),
+                R.drawable.shampoo));
     }
 
     @Override
@@ -57,10 +60,12 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     public void draw(Canvas canvas) {
         super.draw(canvas);
         if (canvas != null) {
-            canvas.drawColor(Color.WHITE);
-            Paint paint = new Paint();
-            paint.setColor(Color.rgb(250, 0, 0));
-            canvas.drawRect(100, 100, 200, 200, paint);
+//            canvas.drawColor(Color.WHITE);
+//            Paint paint = new Paint();
+//            paint.setColor(Color.rgb(250, 0, 0));
+//            canvas.drawRect(100, 100, 200, 200, paint);
+//
+            mShampoo.draw(canvas);
         }
     }
 

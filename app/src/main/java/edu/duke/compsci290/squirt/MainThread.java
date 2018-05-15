@@ -7,14 +7,14 @@ import android.view.SurfaceHolder;
  * Created by Elizabeth on 5/14/2018.
  */
 
-public class myMainThread extends Thread {
+public class MainThread extends Thread {
 
     private SurfaceHolder mSurfaceHolder;
     private GameView mGameView;
     private boolean mIsRunning;
     public static Canvas mCanvas;
 
-    public myMainThread(SurfaceHolder surfaceHolder, GameView gameView){
+    public MainThread(SurfaceHolder surfaceHolder, GameView gameView){
         super();
         mSurfaceHolder = surfaceHolder;
         mGameView = gameView;
@@ -45,9 +45,4 @@ public class myMainThread extends Thread {
     public void setRunning(boolean isRunning) {
         mIsRunning = isRunning;
     }
-
-
-
-
-
 }
